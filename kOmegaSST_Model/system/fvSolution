@@ -33,7 +33,7 @@ solvers
         relTol          0.1;
     }
 
-    nuTilda
+	"(k|epsilon|omega|nuTilda)"
     {
         solver          smoothSolver;
         smoother        GaussSeidel;
@@ -51,7 +51,6 @@ SIMPLE
     {
         p               1e-5;
         U               1e-5;
-        nuTilda         1e-5;
     }
 }
 
@@ -64,7 +63,6 @@ relaxationFactors
     equations
     {
         U               0.7;
-        nuTilda         0.7;
     }
 }
 

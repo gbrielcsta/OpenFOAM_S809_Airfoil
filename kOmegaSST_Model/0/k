@@ -9,38 +9,41 @@ FoamFile
 {
     format      ascii;
     class       volScalarField;
-    object      nuTilda;
+    object      k;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -1 0 0 0 0];
+kInlet          0.032;
 
-internalField   uniform 5.88e-05;
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform $kInlet;
 
 boundaryField
 {
-    airfoil
+	airfoil
+	{
+		type            kqRWallFunction;
+        value           uniform $kInlet;
+	}
+	
+	outlet
     {
-        type            fixedValue;
-        value           uniform 0;
-    }
-
-    outlet
-    {
-        type            freestream;
-        freestreamValue $internalField;
+		type            fixedValue;
+        value           uniform $kInlet;
     }
 	
     inlet
     {
-        type            freestream;
-        freestreamValue $internalField;
+        type            fixedValue;
+        value           uniform $kInlet;
     }
-
+	
     frontAndBack
     {
         type            empty;
     }
 }
+
 
 // ************************************************************************* //
