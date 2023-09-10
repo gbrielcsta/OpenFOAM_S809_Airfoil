@@ -9,8 +9,6 @@ AoA = 0;                  % Angle of Attack [degrees]
 I = 0.01;                 % Turbulence Intensity
 C = 1.00;                 % Chord length [m]
 
-PI = 3.14;                % Value of Pi
-
 % Calculation of Velocity Components
 Ux = cos(AoA * PI / 180) * U;  % X-Velocity Component 
 Uy = sin(AoA * PI / 180) * U;  % Y-Velocity Component
